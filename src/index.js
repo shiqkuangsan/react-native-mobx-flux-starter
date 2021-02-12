@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
+import { Provider } from 'mobx-react';
 import { Router, Stack } from 'react-native-router-flux';
-import { PersistGate } from 'redux-persist/es/integration/react';
 import SplashScreen from 'react-native-splash-screen';
 
 import { Root, StyleProvider } from 'native-base';
@@ -18,29 +17,27 @@ class App extends React.Component {
     this.state = { loading: true };
   }
 
-  async componentDidMount() {
+  async componentDidMount(): void {
     SplashScreen.hide();
     this.setState({ loading: false });
   }
 
   render() {
     const { loading } = this.state;
-    const { store, persistor } = this.props;
+    const { store } = this.props;
 
     if (loading) {
-      return <Loading />;
+      return <Loading/>;
     }
 
     return (
       <Root>
         <Provider store={store}>
-          <PersistGate loading={<Loading />} persistor={persistor}>
-            <StyleProvider style={getTheme(theme)}>
-              <Router>
-                <Stack key="root">{Routes}</Stack>
-              </Router>
-            </StyleProvider>
-          </PersistGate>
+          <StyleProvider style={getTheme(theme)}>
+            <Router>
+              <Stack key="root">{Routes}</Stack>
+            </Router>
+          </StyleProvider>
         </Provider>
       </Root>
     );
@@ -49,7 +46,6 @@ class App extends React.Component {
 
 App.propTypes = {
   store: PropTypes.shape({}).isRequired,
-  persistor: PropTypes.shape({}).isRequired,
 };
 
 export default App;

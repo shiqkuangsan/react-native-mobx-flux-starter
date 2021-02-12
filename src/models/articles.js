@@ -1,12 +1,14 @@
 import moment from 'moment';
 import Api from '../lib/api';
 import HandleErrorMessage from '../lib/format-error-messages';
-import initialState from '../store/articles';
 import Config from '../constants/config';
 import { getFeaturedImageUrl } from '../lib/images';
 import { ucfirst, stripHtml } from '../lib/string';
 import { errorMessages, successMessages } from '../constants/messages';
 import pagination from '../lib/pagination';
+// import initialState from '../store/articles';
+
+const initialState = {};
 
 /**
  * Transform the endpoint data structure into our redux store format

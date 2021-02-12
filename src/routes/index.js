@@ -4,9 +4,9 @@ import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../constants/config';
 
-import { ArticlesForm, ArticlesList, ArticlesSingle } from '../containers';
-
-import AboutComponent from '../components/About';
+import Home from 'src/containers/Home';
+import Activity from 'src/containers/Activity';
+import Me from 'src/containers/Me';
 
 const Index = (
   <Stack hideNavBar>
@@ -24,26 +24,25 @@ const Index = (
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={AboutComponent} />
+          <Scene key="home" component={Home}/>
         </Stack>
 
         <Stack
-          key="articlesList"
-          title="Articles List"
+          key="activity"
+          title="Activity"
           icon={() => <Icon name="list" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="articlesList" component={ArticlesList} />
-          <Scene key="articlesSingle" component={ArticlesSingle} />
+          <Scene key="activity" component={Activity}/>
         </Stack>
 
         <Stack
-          key="form"
-          title="Articles Form"
+          key="profile"
+          title="Profile"
           icon={() => <Icon name="add" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="form" component={ArticlesForm} />
+          <Scene key="profile" component={Me}/>
         </Stack>
       </Tabs>
     </Scene>
