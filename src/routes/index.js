@@ -1,10 +1,11 @@
 import React from 'react';
-import { Scene, Tabs, Stack } from 'react-native-router-flux';
+import { Scene, Tabs, Stack, Actions } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../constants/config';
 
 import Home from 'src/containers/Home';
+import Messages from 'src/containers/Messages';
 import Activity from 'src/containers/Activity';
 import Me from 'src/containers/Me';
 
@@ -24,7 +25,8 @@ const Index = (
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={Home}/>
+          <Scene key="home" component={Home} rightTitle='消息' onRight={() => Actions.push('message')}/>
+          <Scene key="message" component={Messages} title='我的消息'/>
         </Stack>
 
         <Stack

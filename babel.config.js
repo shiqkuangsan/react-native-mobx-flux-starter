@@ -4,6 +4,6 @@ module.exports = {
     'mobx',
   ],
   plugins: [
-    '@babel/plugin-transform-flow-strip-types'  // error this._callListeners.bind
+    '@babel/plugin-transform-flow-strip-types',  // error this._callListeners.bind
   ]
 };
