@@ -32,7 +32,7 @@ class App extends React.Component {
 
     return (
       <Root>
-        <Provider store={store}>
+        <Provider {...store}>
           <StyleProvider style={getTheme(theme)}>
             <Router>
               <Stack key="root">{Routes}</Stack>

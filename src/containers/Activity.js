@@ -6,7 +6,7 @@ import {
   Text,
 } from 'react-native';
 
-@inject('store')
+@inject('homeStore')
 @observer
 export default class extends Component {
 
@@ -16,7 +16,7 @@ export default class extends Component {
 
 
   render() {
-    console.log('Activity', this.props.store);
+    console.log('Activity', this.props.homeStore);
     return (
       <View style={styles.container}>
         <Text> 活动 Page </Text>

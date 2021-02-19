@@ -1,4 +1,4 @@
-import { runInAction, makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 import faker from 'faker';
 
 class HomeStore {
@@ -9,14 +9,12 @@ class HomeStore {
   }
 
   changeTitle() {
-    runInAction(() => {
-      this.title = faker.name.lastName();
-    });
+    this.title = faker.name.lastName();
   }
 
   reset = () => {
-    this.title = 'Home'
-  }
+    this.title = 'Home';
+  };
 }
 
 export default new HomeStore();

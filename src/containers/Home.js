@@ -9,7 +9,7 @@ import { Colors, } from 'react-native/Libraries/NewAppScreen';
 import { inject, observer } from 'mobx-react';
 import { Button } from 'react-native-elements';
 
-@inject('store')
+@inject('homeStore')
 @observer
 export default class extends Component {
 
@@ -24,12 +24,12 @@ export default class extends Component {
   }
 
   onPress = () => {
-    const { homeStore } = this.props.store;
+    const { homeStore } = this.props;
     homeStore.changeTitle();
   };
 
   render() {
-    const { homeStore } = this.props.store;
+    const { homeStore } = this.props;
     return (
       <>
         <StatusBar barStyle={'dark-content'}/>
